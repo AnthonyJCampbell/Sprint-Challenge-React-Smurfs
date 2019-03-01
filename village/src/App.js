@@ -25,21 +25,33 @@ class App extends Component {
   }
 
   postSmurf = (name, age, height) => {
+    console.log(name, age, height)
     axios.post('http://localhost:3333/smurfs', {name, age, height})
       .then(res => this.setState({smurfs: res.data}))
       .catch(err => console.log(`Something's wrong with the POSTSMURF() ${err}`));
+  }
+
+  smurfASmurf = (id) => {
+    axios.delete(`http://localhost:3333/smurfs/${id}`, )
+      .then(res => this.setState({smurfs: res.data}))
+      .catch(err => console.log(`There's a smurfin' error with the smurfASmurf function. Best smurf it out real quick!`));
   }
 
   render() {
     return (
         <div className="App">
           <Route path="/smurfform" render={props => (
-            <SmurfForm {...props} postSmurf={this.postSmurf} />
+            // SmurfForm to be rendered on '/smurfform'
+            <SmurfForm  postSmurf={this.postSmurf} {...props}/>
             )} />
-            <Link to={`/`}><h2>Show Smurfs</h2></Link>
-            <Link to={`/smurfform`}><h2>Add New Smurfs</h2></Link>
+
+            {/* Links are always visible and acts as nav */}
+            <Link to={`/`}><h2>Smurf the Smurfs</h2></Link>
+            <Link to={`/smurfform`}><h2>Smurf New Smurfs</h2></Link>
+
+          {/* Smurfs is the list of all smurfs, visible on '/' */}
           <Route exact path="/" render={props => (
-            <Smurfs {...props} smurfs={this.state.smurfs} />
+            <Smurfs {...props} smurfs={this.state.smurfs} smurfASmurf={this.smurfASmurf}/>
           )} />
         </div>
     );
