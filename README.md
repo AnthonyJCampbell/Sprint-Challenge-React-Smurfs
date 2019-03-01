@@ -28,18 +28,19 @@ In this challenge, you will create a Single Page Application complete with Clien
 
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] Explain the differences between `client-side routing` and `server-side routing`.
-Server-side routing necessitates a complete refresh of the page for getting new information/components. Even elements that are unchanged have to be fetched anew from the server.
-- [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+- [x] Explain the differences between `client-side routing` and `server-side routing`.
+Server-side routing necessitates a complete refresh of the page for getting new information/components. Even elements that are unchanged have to be fetched anew from the server. This is because a new GET request gets sent to the server whenever you make a change or click a link.
+Client-side routing, on the other hand, refers to handling routing and changes via JavaScript within the browser. In doing so, the page itself won't refresh. Internally, new components can be mounted and API calls can be made, but there's no need to request a new version of the site from the server. This enables us to build a seemless experience with navbars that always remain firmly in place.
+- [x] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
 CRUD is a acronym for Create, Read, Update, and Delete. The corresponding HTTP methods are:
     - Create = POST, which is a method that allows us to push new information to the source, provided it is in a format that can be handled by the API/server;
     - Read = GET, which is a read-only method that requests information from a source;
     - Update = PUT, which is a method that allows us to override previously POSTed data entries. The most common use-case is changing user information and altering preferences;
     - Delete = DELETE, which is a method that (surprise!) enables you to target a specific data entry and delete it from the API/server.
-- [ ] Mention three tools we can use to make AJAX requests.
-    - Promises
-    - The `fetch()` API;
-    - Axios
+- [x] Mention three tools we can use to make AJAX requests.
+    - using the inbuilt Promises;
+    - Using the `fetch()` API;
+    - Using the Axios library, which gives us some additional information on our request, hence the need for using `(res) => res.data` to access the requested data.
 
 ## Project Set Up
 
